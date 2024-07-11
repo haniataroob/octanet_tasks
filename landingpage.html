@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>website</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0px;
+      border: 0px;
+    }
+
+    .contain {
+      border: 5px solid black;
+      padding: 10px;
+      margin: 2px;
+
+    }
+
+    .nav {
+      margin: 2px solid black;
+      background-color: black;
+      border-radius: 10px;
+      height: 80px;
+    }
+
+    .nav:hover {
+      border-radius: 25px;
+    }
+
+    .nav li {
+      padding: 2px;
+      float: left;
+      margin: 20px 50px;
+      border: 2px solid black;
+      color: aliceblue;
+
+    }
+
+    .nav ul {
+      border-radius: 25px;
+      overflow: auto;
+      list-style: none;
+      padding: 1px;
+      border: outset;
+      border: 2px solid black;
+
+
+    }
+
+    #btn li {
+      background-color: black;
+      border: 1px black;
+
+
+    }
+
+    #btn:hover {
+      background-color: purple;
+      border-radius: 52px;
+      cursor: pointer;
+      font-size: large;
+      color: white;
+      width: 60px;
+    }
+
+    .welcome {
+      background-repeat: round;
+      width: 100%;
+      /* background-image: url(data:image/jpeg;base64,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); */
+      background-size: 300px;
+      color: azure;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      height: 350px;
+
+      padding-bottom: 100px;
+      font-size: 100px;
+      padding-left: 150px;
+      float: right;
+    }
+
+    .button {
+      border-radius: 15px;
+      background-color: rgb(14, 139, 241);
+      width: 100px;
+      height: 30px;
+      border: 1px solid white;
+
+    }
+
+    .button1 {
+      background-color: black;
+      color: white;
+      border-radius: 15px;
+      border: 1px solid white;
+      width: 100px;
+      height: 30px;
+    }
+
+    .web {
+      background-color: black;
+      width: 280px;
+      border-radius: 15px;
+      align-content: center;
+      height: 30px;
+    }
+
+    #button:hover {
+      background-color: rgb(88, 90, 92);
+
+    }
+
+    .choose {
+      float: right;
+      font-size: 24px;
+      background: transparent;
+      padding-top: 100px;
+      color: aliceblue;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    }
+
+    .chose {
+      float: right;
+      font-size: 14px;
+      background: transparent;
+      padding-top: 130px;
+      color: blanchedalmond;
+
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .slideshow-container {
+      position: relative;
+      background-color: transparent;
+      float: right;
+      text-align: right;
+      color: aliceblue;
+    }
+
+    /* Slides */
+    .mySlides {
+      display: none;
+      /* padding: 180px; */
+      text-align: right;
+      font-size: 18px;
+      float: right;
+
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 10%;
+      width: auto;
+      margin-top: 1px;
+      padding: 16px;
+      color: #888;
+      font-weight: bold;
+      font-size: 10px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+    }
+
+    /* The dot/bullet/indicator container */
+    .dot-container {
+      text-align: center;
+      padding: 20px;
+      background-color: transparent;
+      font-size: 20px;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color0.6s ease;
+    }
+
+    /* Add a background color to the active dot/circle */
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Add an italic font style to all quotes */
+    q {
+      font-style: italic;
+    }
+
+    /* Add a blue color to the author */
+    .author {
+      color: rgb(9, 92, 248);
+      font-size: 11px;
+    }
+
+    .a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      color: rgb(238, 148, 13);
+    }
+
+    .d {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Hide the images by default */
+    .myslides {
+      display: flex;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .inside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slider {
+      width: 250px;
+      height: 400px;
+      background: url(1.jpg);
+      background-repeat: no-repeat;
+      margin: 100px auto;
+      animation: slide 20s infinite;
+    }
+
+    @keyframes slide {
+      25% {
+        background: url(2.jpg);
+        background-repeat: no-repeat;
+      }
+
+      50% {
+        background: url(3.jpg);
+        background-repeat: no-repeat;
+      }
+
+      75% {
+        background: url(5.jpg);
+        background-repeat: no-repeat;
+      }
+
+      100% {
+
+        background: url(6.jpg);
+
+        background-repeat: no-repeat;
+      }
+    }
+
+    .tab {
+      font-size: 20px;
+      float: left;
+      color: #f1f1d8;
+
+    }
+
+    table,
+    th,
+    td {
+      border: 5px solid black;
+      background-image: url(horor.jpg);
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .space {
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: red;
+      box-shadow: #faf3f3;
+    }
+
+    .link {
+      float: right;
+      font-size: 20px;
+    }
+
+    .foot {
+      border: 1px solid black;
+      float: left;
+      font-size: 40px;
+      width: 100%;
+      background-color: transparent;
+      height: 100px;
+      font-family: serif;
+      color: rgb(164, 164, 241);
+    }
+  </style>
+</head>
+
+<body background="horor.jpg">
+  <div class="choose">
+    choose your best part........
+
+  </div>
+  <div class="chose">
+    ..........a series of collection
+    <br>
+    <br>
+    <br>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the BEST COLLECTIONS
+    <div class="a">
+      the collections that never ends.
+    </div>
+  </div>
+
+  <div class="slideshow-container">
+
+    <!-- Full-width slides/quotes -->
+    <div class="mySlides">
+      <q>“I know of witches who whistle at different pitches"</q>
+      <p class="author"> — Helen Oyeyemi</p>
+    </div>
+
+    <div class="mySlides">
+      <q>“Love will have its sacrifices. No sacrifice without blood.” </q>
+      <p class="author"> — J. Sheridan Le Fanu, “Carmilla” </p>
+    </div>
+
+    <div class="mySlides">
+      <q>“Where there is no imagination, there is no horror.”</q>
+      <p class="author"> — Arthur Conan Doyle</p>
+    </div>
+
+    <!-- Next/prev buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <!-- Dots/bullets/indicators -->
+  <div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+  <div class="conatain">
+
+  </div>
+  <header>
+    <nav class="nav">
+      <ul>
+        <li id="btn"> Home</li>
+        <li id="btn"> About</li>
+        <li id="btn"> Contact us</li>
+        <li id="btn"> Services</li>
+        <li id="btn"> Rate us</li>
+        <!-- <li id="btn"> Sign in</li> -->
+        </div>
+      </ul>
+    </nav>
+  </header>
+
+
+  <div class="welcome">
+
+
+    <h5> Welcome.
+
+      <br>
+      &nbsp;<input type="text" name="web" class="web" id="button"
+        placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔍">
+
+      <br>
+      <button class="button"><strong> FREE TRIAL</strong></button>
+      &nbsp;&nbsp;<button class="button1">CLOSE</button>
+
+
+    </h5>
+    <!-- <div class="choose">
+    choose your best part
+   </div>      -->
+    <!-- Slideshow container -->
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+    </script>
+
+
+    <div class="slider">
+      <br>
+      <br>
+      <label for="books"></label>
+      <select name="books" class="web" id="button">
+        <option value="">search your FEAR</option>
+        <option value="horror">Black Forest<a href=""></a></option>
+        <option value="horror">horrors of the night<a href=""></a></option>
+        <option value="horror">The Exoricist<a href=""></a></option>
+        <option value="horror">The Ritural<a href=""></a></option>
+        <option value="horror">Stephen the king's of Salem loth<a href=""></a></option>
+
+
+      </select>
+      <div class="space">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> DO YOU EVER FEEL
+          SOMETHING...... ......PARANORMAL?</b>
+      </div>
+      <div></div>
+    </div>
+    <div class="tab">
+      <table border="2">
+        <thead>
+          <th>BOOK NAME</th>
+          <th>AUTHOR NAME</th>
+          <th>PUBLISH</th>
+          <th>LINK</th>
+
+        </thead>
+        <tbody>
+          <td>Black Forest </td>
+          <td>Shane Lee</td>
+          <td>1890 </td>
+          <td> <a href="https://www.amazon.in/Black-Forest-Horror-Shane-Lee/dp/1087924642">click ME</a>
+          </td>
+        </tbody>
+        <tbody>
+          <td>Horror of the Nights </td>
+          <td>Tom Coleman</td>
+          <td>1990 </td>
+          <td> <a href="https://www.amazon.in/Horrors-Night-scariest-stories-puzzle/dp/435681682X/ref=sr_1_2_sspa?adgrpid=74709058205&dib=eyJ2IjoiMSJ9.IB7UgCgaRlAD2h3zRgpB9M-bI0VUpMNdmnPQMeX2qlqDyKaeQsPmi4PA_l4KtKj8wy3Xygnq9xtjVl4qHiCiFNXt3LnlISc6zDtlAgbVl4962D1m_hNXqOy5dEKrGY3rHXb6gUWd0w7hnJlCQs49AyurYzx9xQMWlIz4JmdbLfHUSCZQNLKsr4LSEx7Xgcx1ibsnX7_8NU9yaiFUsIY4at3sL_qWYmayaHwrgu68tbU.OLGF9ndZ2TuoFB37vUB3jys3GKC7R2JSi1_jhrfF7N4&dib_tag=se&ext_vrnc=hi&hvadid=683395612713&hvdev=c&hvlocphy=9196528&hvnetw=g&hvqmt=e&hvrand=15265824226394109489&hvtargid=kwd-557913510391&hydadcr=23613_2222150&keywords=horrors+of+the+night&qid=1720683591&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">click ME</a>
+          </td>
+        </tbody>
+
+        <td>The Exoricist </td>
+        <td>William Platter Ballety</td>
+        <td>1899 </td>
+        <td> <a href="https://www.amazon.in/s?k=the+exorcist+wiiliam&crid=2D79A6K3X52RB&sprefix=the+exorcist+wiiliam+%2Caps%2C274&ref=nb_sb_noss_2">click ME</a>
+        </td>
+        </tbody>
+        <td>The Rituals </td>
+        <td>Adam Navil</td>
+        <td>1790 </td>
+        <td> <a href="https://www.amazon.in/s?k=the+ritual+adam+nevill&crid=1TLULO75JW2WX&sprefix=the+rituals+ada%2Caps%2C282&ref=nb_sb_ss_pltr-sample-20_1_15">click ME</a>
+          </tbody>
+        </td>
+        <td>The King of Salem's loth </td>
+        <td>Stephen King</td>
+        <td>1890 </td>
+        <td> <a href="https://www.amazon.in/s?k=the+king+of+salems+loth+by+stephen+king&crid=IDQWDBA0MV2P&sprefix=the+king+of+salems+loth+by+stephen+king%2Caps%2C514&ref=nb_sb_noss">click ME</a>
+        </td>
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <br>
+
+    <div class="link">
+      <a href="www.cursed.com"> www.cursed.com</a><br>
+      htaroob@gmail.com
+    </div>
+    <br>
+    <br>
+
+
+    <div class="foot">
+      .............Contact us
+      <img src="wa.jpg"style="width: 50px;">
+      <img src="li.jpg"style="width: 50px;">
+      <img src="lt.jpg"style="width: 50px;">
+      <img src="lf.jpg"style="width: 50px;">9873990944
+    </div>
+
+</body>
+
+</html>
